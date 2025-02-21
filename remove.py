@@ -38,14 +38,16 @@ def process_image(input_image):
 # Eğer kullanıcı bir dosya yüklediyse
 if uploaded_file is not None:
     # Orijinal resmi göster
-    st.image(uploaded_file, caption=text["loaded_image"], use_column_width=True)
+    st.image(uploaded_file, caption=text["loaded_image"], use_container_width=True)
+
 
     # Arka planı kaldır
     input_image = Image.open(uploaded_file)
     output_image = process_image(input_image)
 
     # Arka plansız resmi göster
-    st.image(output_image, caption=text["processed_image"], use_column_width=True)
+    st.image(output_image, caption=text["processed_image"], use_container_width=True)
+
 
     # Kullanıcıya dosyayı indirme seçeneği sun
     output_name = get_random_filename()
